@@ -11,9 +11,9 @@ let external_resource = await fetchjpl('https://www.w3schools.com/');
 }
 
 
+var wandow = window || self || this;
 
-
-window.jsonplinkCallback = function(data, prom_l) {
+wandow.jsonplinkCallback = function(data, prom_l) {
 
   data = unescape(decodeURIComponent(data));
   data = data.substring(1,data.length-1);
@@ -22,7 +22,7 @@ window.jsonplinkCallback = function(data, prom_l) {
 }
 
 
-window.jsonplink=function(link_url, link_id, prom_l) {
+wandow.jsonplink=function(link_url, link_id, prom_l) {
   link_url = link_url || "https://www.w3schools.com/";
 
   link_id = link_id || 'jsonplink' + new Date().getTime();
@@ -43,7 +43,7 @@ window.jsonplink=function(link_url, link_id, prom_l) {
 
     link.setAttribute('resolved', 'resolved');
 
-    jsonplinkCallback(window.getComputedStyle(link).fontFamily,    link.prom);
+    jsonplinkCallback(wandow.getComputedStyle(link).fontFamily,    link.prom);
     document.body.removeChild(link);
   };
 
@@ -52,7 +52,7 @@ window.jsonplink=function(link_url, link_id, prom_l) {
   return prom_l;
 
 }
-window.fetchjpl=async function (furl) {
+wandow.fetchjpl=async function (furl) {
 
 
 

@@ -13,9 +13,9 @@ let scr = document.createElement('script');
   
 }
 
+var wandow = window || self || this;
 
-
-window.fetchcorb=async function(url,mime){
+wandow.fetchcorb=async function(url,mime){
 
 
 return await fetch('https://corb.gamestop.workers.dev/'+url+'xxmimexx'+mime+'xxmimexx');
@@ -23,7 +23,7 @@ return await fetch('https://corb.gamestop.workers.dev/'+url+'xxmimexx'+mime+'xxm
   
 }
 
-window.corb=function(url,mime){
+wandow.corb=function(url,mime){
 
 return 'https://corb.gamestop.workers.dev/'+url+'xxmimexx'+mime+'xxmimexx';
 

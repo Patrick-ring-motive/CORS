@@ -10,9 +10,9 @@ let external_resource = await fetchjpst('https://www.w3schools.com/');
   
 }
 
-
+var wandow = window || self || this;
 // Define the callback function that will be called when the data is loaded
-window.jsonpstyleCallback = function(data, prom_l) {
+wandow.jsonpstyleCallback = function(data, prom_l) {
 
   data = unescape(decodeURIComponent(data));
   data = data.substring(1, data.length - 1);
@@ -20,7 +20,7 @@ window.jsonpstyleCallback = function(data, prom_l) {
   return data;
 }
 
-window.jsonpstyle = function(style_url, style_id, prom_l) {
+wandow.jsonpstyle = function(style_url, style_id, prom_l) {
   style_url = style_url || "https://www.w3schools.com/";
 
   style_id = style_id || 'jsonpstyle' + new Date().getTime();
@@ -37,7 +37,7 @@ window.jsonpstyle = function(style_url, style_id, prom_l) {
     // Call the callback function when the data is loaded
 
     style.setAttribute('resolved', 'resolved');
-    jsonpstyleCallback(window.getComputedStyle(style).fontFamily, style.prom);
+    jsonpstyleCallback(wandow.getComputedStyle(style).fontFamily, style.prom);
     document.body.removeChild(style);
   };
 
@@ -47,7 +47,7 @@ window.jsonpstyle = function(style_url, style_id, prom_l) {
 
 }
 
-window.fetchjpst = async function(furl) {
+wandow.fetchjpst = async function(furl) {
 
 
 

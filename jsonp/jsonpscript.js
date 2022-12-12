@@ -12,9 +12,9 @@ let external_resource = await fetchjp('https://www.w3schools.com/');
 
 
 
+var wandow = window || self || this;
 
-
-window.jsonpCallback = function(data, prom_l) {
+wandow.jsonpCallback = function(data, prom_l) {
 
   if (prom_l) { return prom_l(data); }
   return data;
@@ -22,7 +22,7 @@ window.jsonpCallback = function(data, prom_l) {
 
 
 
-window.jsonp = function(script_url, script_id, prom_l) {
+wandow.jsonp = function(script_url, script_id, prom_l) {
   script_url = script_url || "https://www.w3schools.com/";
 
   script_id = script_id || 'jsonp' + new Date().getTime();
@@ -40,7 +40,7 @@ window.jsonp = function(script_url, script_id, prom_l) {
     return jscr.prom;
 
   }
-  window.addEventListener("message", jscr.lstnr, false);
+  wandow.addEventListener("message", jscr.lstnr, false);
 
 
 
@@ -49,7 +49,7 @@ window.jsonp = function(script_url, script_id, prom_l) {
 }
 
 
-window.fetchjp = async function(furl) {
+wandow.fetchjp = async function(furl) {
 
 
 
