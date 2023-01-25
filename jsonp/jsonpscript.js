@@ -1,5 +1,5 @@
 
-async function main(){
+void async function main(){
 
 
 
@@ -8,7 +8,7 @@ let external_resource = await fetchjp('https://www.w3schools.com/');
 
     console.log(external_resource);
   
-}
+}();
 
 
 
@@ -60,4 +60,3 @@ wandow.fetchjp = async function(furl) {
   return plres;
 }
 
-main();

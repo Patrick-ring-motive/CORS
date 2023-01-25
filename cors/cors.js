@@ -1,5 +1,5 @@
 
-async function main(){
+void async function main(){
 
 
 
@@ -8,7 +8,7 @@ let external_resource = await fetchcors('https://www.w3schools.com/');
 
     console.log(external_resource);
   
-}
+}();
 
 var wandow = window || self || this;
 
@@ -28,4 +28,3 @@ return 'https://cors.gamestop.workers.dev/'+url;
   
 }
 
-main();

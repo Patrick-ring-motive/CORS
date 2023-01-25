@@ -1,5 +1,5 @@
 
-async function main(){
+void async function main(){
 
 
 
@@ -8,7 +8,7 @@ let external_resource = await fetchjpf('https://www.w3schools.com/');
 
     console.log(external_resource);
   
-}
+}();
 
 
 
@@ -65,4 +65,3 @@ wandow.fetchjpf = async function(furl) {
 }
 
 
-main();

@@ -1,5 +1,5 @@
 
-async function main(){
+void async function main(){
 
 
 
@@ -11,7 +11,7 @@ let scr = document.createElement('script');
   document.body.appendChild(scr);
 
   
-}
+}();
 
 var wandow = window || self || this;
 
@@ -32,4 +32,3 @@ return 'https://corb.gamestop.workers.dev/'+url+'xxmimexx'+mime+'xxmimexx';
 
 
 
-main();

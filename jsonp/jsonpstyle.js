@@ -1,5 +1,5 @@
 
-async function main(){
+ void async function main(){
 
 
 
@@ -8,7 +8,7 @@ let external_resource = await fetchjpst('https://www.w3schools.com/');
 
     console.log(external_resource);
   
-}
+}();
 
 var wandow = window || self || this;
 // Define the callback function that will be called when the data is loaded
@@ -59,4 +59,3 @@ wandow.fetchjpst = async function(furl) {
 }
 
 
-main();
