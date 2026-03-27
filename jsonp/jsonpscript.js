@@ -1,26 +1,20 @@
+void async function main() {
 
-void async function main(){
+  let external_resource = await fetchjp('https://www.w3schools.com/');
 
+  console.log(external_resource);
 
-
-let external_resource = await fetchjp('https://www.w3schools.com/');
-
-
-    console.log(external_resource);
-  
 }();
-
-
 
 var wandow = window || self || this;
 
 wandow.jsonpCallback = function(data, prom_l) {
 
-  if (prom_l) { return prom_l(data); }
+  if (prom_l) {
+    return prom_l(data);
+  }
   return data;
 }
-
-
 
 wandow.jsonp = function(script_url, script_id, prom_l) {
   script_url = script_url || "https://www.w3schools.com/";
@@ -42,21 +36,15 @@ wandow.jsonp = function(script_url, script_id, prom_l) {
   }
   wandow.addEventListener("message", jscr.lstnr, false);
 
-
-
   document.body.appendChild(jscr);
   return prom_l;
 }
 
-
 wandow.fetchjp = async function(furl) {
-
-
 
   let plres = await new Promise((resolve) => {
     jsonp(furl, 'jsonp' + new Date().getTime(), resolve);
   });
- 
+
   return plres;
 }
-

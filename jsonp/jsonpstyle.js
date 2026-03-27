@@ -1,13 +1,9 @@
+void async function main() {
 
- void async function main(){
+  let external_resource = await fetchjpst('https://www.w3schools.com/');
 
+  console.log(external_resource);
 
-
-let external_resource = await fetchjpst('https://www.w3schools.com/');
-
-
-    console.log(external_resource);
-  
 }();
 
 var wandow = window || self || this;
@@ -16,7 +12,9 @@ wandow.jsonpstyleCallback = function(data, prom_l) {
 
   data = unescape(decodeURIComponent(data));
   data = data.substring(1, data.length - 1);
-  if (prom_l) { return prom_l(data); }
+  if (prom_l) {
+    return prom_l(data);
+  }
   return data;
 }
 
@@ -49,13 +47,9 @@ wandow.jsonpstyle = function(style_url, style_id, prom_l) {
 
 wandow.fetchjpst = async function(furl) {
 
-
-
   let plres = await new Promise((resolve) => {
     jsonpstyle(furl, 'jsonpstyle' + new Date().getTime(), resolve);
   });
 
   return plres;
 }
-
-

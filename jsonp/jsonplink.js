@@ -1,28 +1,24 @@
+void async function main() {
 
-void async function main(){
+  let external_resource = await fetchjpl('https://www.w3schools.com/');
 
+  console.log(external_resource);
 
-
-let external_resource = await fetchjpl('https://www.w3schools.com/');
-
-
-    console.log(external_resource);
-  
 }();
-
 
 var wandow = window || self || this;
 
 wandow.jsonplinkCallback = function(data, prom_l) {
 
   data = unescape(decodeURIComponent(data));
-  data = data.substring(1,data.length-1);
-  if (prom_l) { return prom_l(data); }
+  data = data.substring(1, data.length - 1);
+  if (prom_l) {
+    return prom_l(data);
+  }
   return data;
 }
 
-
-wandow.jsonplink=function(link_url, link_id, prom_l) {
+wandow.jsonplink = function(link_url, link_id, prom_l) {
   link_url = link_url || "https://www.w3schools.com/";
 
   link_id = link_id || 'jsonplink' + new Date().getTime();
@@ -40,10 +36,9 @@ wandow.jsonplink=function(link_url, link_id, prom_l) {
   link.onload = function() {
     // Call the callback function when the data is loaded
 
-
     link.setAttribute('resolved', 'resolved');
 
-    jsonplinkCallback(wandow.getComputedStyle(link).fontFamily,    link.prom);
+    jsonplinkCallback(wandow.getComputedStyle(link).fontFamily, link.prom);
     document.body.removeChild(link);
   };
 
@@ -52,9 +47,7 @@ wandow.jsonplink=function(link_url, link_id, prom_l) {
   return prom_l;
 
 }
-wandow.fetchjpl=async function (furl) {
-
-
+wandow.fetchjpl = async function(furl) {
 
   let plres = await new Promise((resolve) => {
     jsonplink(furl, 'jsonplink' + new Date().getTime(), resolve);
@@ -62,5 +55,3 @@ wandow.fetchjpl=async function (furl) {
 
   return plres;
 }
-
-

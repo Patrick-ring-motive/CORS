@@ -1,34 +1,22 @@
+void async function main() {
 
-void async function main(){
+  let scr = document.createElement('script');
 
-
-
-
-
-let scr = document.createElement('script');
-
-  scr.src=corb('https://raw.githubusercontent.com/Patrick-ring-motive/gwiki/master/UserScripts/testAlert.js','text/javascript');
+  scr.src = corb('https://raw.githubusercontent.com/Patrick-ring-motive/gwiki/master/UserScripts/testAlert.js', 'text/javascript');
   document.body.appendChild(scr);
 
-  
 }();
 
 var wandow = window || self || this;
 
-wandow.fetchcorb=async function(url,mime){
+wandow.fetchcorb = async function(url, mime) {
 
+  return await fetch('https://corb.gamestop.workers.dev/' + url + 'xxmimexx' + mime + 'xxmimexx');
 
-return await fetch('https://corb.gamestop.workers.dev/'+url+'xxmimexx'+mime+'xxmimexx');
-
-  
 }
 
-wandow.corb=function(url,mime){
+wandow.corb = function(url, mime) {
 
-return 'https://corb.gamestop.workers.dev/'+url+'xxmimexx'+mime+'xxmimexx';
+  return 'https://corb.gamestop.workers.dev/' + url + 'xxmimexx' + mime + 'xxmimexx';
 
-  
 }
-
-
-
